@@ -3,13 +3,15 @@ package com.example.mypkg;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+
 @ConfigurationProperties(prefix = "currency-service")
 @Component
-public class CurrencyServiceConfiguration {
-
-	  private String url;
-	  private String username;
-	  private String key;
+public class CurrencyServiceConfiguration 
+{
+   
+	private String url;
+	private String username;
+	private String key;
 	public String getUrl() {
 		return url;
 	}
@@ -28,6 +30,10 @@ public class CurrencyServiceConfiguration {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	  
+	
+	
+	
+	
 	
 }
+ 

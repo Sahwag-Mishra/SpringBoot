@@ -12,7 +12,7 @@ public class CurrencyConfigurationContriller
 	private CurrencyServiceConfiguration configuration;
 	
 	
-	@RequestMapping("currency-configuration")
+	@RequestMapping("/currency-configuration")
 	public CurrencyServiceConfiguration retrieveAllCourses()
 	{
 		return configuration;
