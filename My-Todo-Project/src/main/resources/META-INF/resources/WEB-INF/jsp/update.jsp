@@ -1,6 +1,6 @@
 
-<%@include file="common/navigation.jsp" %>
-<%@include file="common/header.jsp" %>
+<%@include file="common/navigation.jspf" %>
+<%@include file="common/header.jspf" %>
 <div class="container">
 	<h1>Update Todo</h1>
 
@@ -29,7 +29,7 @@
 					</form:form>
 					
 </div>					
-			<%@include file="common/footer.jsp" %>
+			<%@include file="common/footer.jspf" %>
 				<script type="text/javascript">
 					$('#targetDate').datepicker({
 					    format: 'yyyy-mm-dd'

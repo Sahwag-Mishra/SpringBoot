@@ -1,7 +1,7 @@
 
 	      
-	      <%@ include file="common/navigation.jsp" %>
-	      <%@include file="common/header.jsp"%>
+	      <%@ include file="common/navigation.jspf" %>
+	      <%@include file="common/header.jspf"%>
 	       <div class="container"
 	        <h1>Your Todos</h1>
 							       <table class="table">
@@ -41,7 +41,7 @@
 			</div>
 			
 		     
-			<%@include file="common/footer.jsp" %>
+			<%@include file="common/footer.jspf" %>
 						   
 	   </body>
 	   

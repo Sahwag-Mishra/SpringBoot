@@ -1,6 +1,6 @@
 
-	 <%@ include file = "common/navigation.jsp"%>
-	 <%@ include file = "common/header.jsp"%>
+	 <%@ include file = "common/navigation.jspf"%>
+	 <%@ include file = "common/header.jspf"%>
 			<h1>Add todo</h1>
 			
 			<form:form method="post"   modelAttribute="todo">
@@ -28,7 +28,7 @@
 			
 			</form:form>
 			
-			<%@ include file = "common/footer.jsp" %>
+			<%@ include file = "common/footer.jspf" %>
 				<script type="text/javascript">
 					$('#targetDate').datepicker({
 					    format: 'yyyy-mm-dd'
