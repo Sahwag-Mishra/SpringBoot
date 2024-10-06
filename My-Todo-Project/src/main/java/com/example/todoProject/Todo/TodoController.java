@@ -9,8 +9,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-@Controller
+//@Controller
+@SessionAttributes("name")
 public class TodoController
 {
 	
@@ -24,12 +26,10 @@ public class TodoController
 	@RequestMapping("Todo-List")
 	public String todoList(ModelMap model)
 	{
-		List<Todo> todos = todoService.findTodoById("Ayush Mishra");
-		System.out.println(todos);
+		String userName = (String)model.get("name");
+		List<Todo> todos = todoService.findTodoByUserName(userName);
+//		System.out.println(todos);
 		model.addAttribute("todos", todos);
-		
-		
-		
 		return "todo-list";
 	}
 	
@@ -70,12 +70,10 @@ public class TodoController
 	}
 	
 	@RequestMapping(value="update-todo",method = RequestMethod.POST)
-	public String updateTodo(ModelMap model,Todo todo)
+	public String updateTodo(ModelMap model,Todo todo,@RequestParam int id,@RequestParam String description , @RequestParam LocalDate targetDate)
 	{
-		String userName = (String)model.get("name");
-	    
 		
-		 todoService.updateByDescription(userName,todo.getDescription(),todo.getTargetDate(),todo.isDone());
+	    todoService.updateByDescription(id,description,targetDate);
 		
 		return "redirect:Todo-List";
 	}

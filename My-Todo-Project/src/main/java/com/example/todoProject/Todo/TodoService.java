@@ -26,9 +26,11 @@ public class TodoService
 		
 	}
 	
-	public List<Todo> findTodoById(String userName)
+	public List<Todo> findTodoByUserName(String userName)
 	{
-		 return todos;
+		Predicate<? super Todo> predicate = todo -> todo.getUserName().equalsIgnoreCase(userName);
+				
+		return todos.stream().filter(predicate).toList();
 	}
 
 	public void addTodoByBinding(String userName,String description,LocalDate date,boolean temdone)
@@ -58,10 +60,14 @@ public class TodoService
 //		}
 //	}
 
-	public void updateByDescription(String userName,String description,LocalDate date,boolean done) {
+	public void updateByDescription(int id , String description,LocalDate targetDate) {
 		
-		Todo todo = new Todo(++todoCount,userName,description,date,done);
-		todos.add(todo);
+		Predicate<? super Todo> predicate = todo->todo.getId() == id ;
+	    todos.stream().filter(predicate).findFirst().ifPresent(todo -> {
+	    	todo.setId(id);
+	    	todo.setDescription(description);
+	    	todo.setTargetDate(targetDate);
+	    });
 	} 
 	
 }

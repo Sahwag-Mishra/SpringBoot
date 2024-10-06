@@ -2,14 +2,26 @@ package com.example.todoProject.Todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class Todo 
 {
+	@Id
+	@GeneratedValue
 	private int id;
 	private String userName;
 	private String description;
 	private LocalDate targetDate;
 	private boolean done;
 
+	public Todo()
+	{
+		
+	}
 	
 	public Todo(int id, String userName, String description, LocalDate targetDate,boolean done) {
 		super();
@@ -19,15 +31,7 @@ public class Todo
 		this.targetDate = targetDate;
 		this.done = done;
 	}
-
-	public boolean isDone() {
-		return done;
-	}
-
-	public void setDone(boolean done) {
-		this.done = done;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -35,7 +39,7 @@ public class Todo
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getUserName() {
 		return userName;
 	}
@@ -43,6 +47,7 @@ public class Todo
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
 	
 	public String getDescription() {
 		return description;
@@ -52,6 +57,7 @@ public class Todo
 		this.description = description;
 	}
 	
+	
 	public LocalDate getTargetDate() {
 		return targetDate;
 	}
@@ -59,6 +65,16 @@ public class Todo
 	public void setTargetDate(LocalDate targetDate) {
 		this.targetDate = targetDate;
 	}
+	
+	
+	public boolean isDone() {
+		return done;
+	}
+
+	public void setDone(boolean done) {
+		this.done = done;
+	}
+
 	
 	@Override
 	public String toString() {
